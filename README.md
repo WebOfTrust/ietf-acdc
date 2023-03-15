@@ -2,16 +2,16 @@
 
 This is the working area for the individual Internet-Draft, "Authentic Chained Data Containers (ACDC)".
 
-* [Editor's Copy](https://WebOfTrust.github.io/ietf-acdc/#go.draft-ssmith-acdc.html)
+* [Editor's Copy](https://WebOfTrust.github.io/ietf-acdc-test/#go.draft-ssmith-acdc.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ssmith-acdc)
 * [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ssmith-acdc)
-* [Compare Editor's Copy to Individual Draft](https://WebOfTrust.github.io/ietf-acdc/#go.draft-ssmith-acdc.diff)
+* [Compare Editor's Copy to Individual Draft](https://WebOfTrust.github.io/ietf-acdc-test/#go.draft-ssmith-acdc.diff)
 
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/WebOfTrust/ietf-acdc/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/WebOfTrust/ietf-acdc-test/blob/main/CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
 The GitHub interface supports creating pull requests using the Edit (✏) button.
