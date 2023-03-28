@@ -9,11 +9,11 @@
 <meta content="
        An authentic chained data container (ACDC)    is an IETF   internet draft focused specification being incubated at the ToIP (Trust over IP) foundation  .  An ACDC is a variant of the W3C Verifiable Credential (VC) specification  . The W3C VC specification depends on the W3C DID (Decentralized IDentifier) specification  . A major use case for the ACDC specification is to provide GLEIF vLEIs (verifiable Legal Entity Identifiers)  . GLEIF is the Global Legal Entity Identifier Foundation  . ACDCs are dependent on a suite of related IETF focused standards associated with the KERI (Key Event Receipt Infrastructure)   specification. These include CESR  , SAID  , PTEL  , CESR-Proof  , IPEX  , did:keri  , and OOBI  . Some of the major distinguishing features of ACDCs include normative support for chaining, use of composable JSON Schema  , multiple serialization formats, namely, JSON  , CBOR  , MGPK  , and CESR  , support for Ricardian contracts  ,  support for chain-link confidentiality  , a well defined security model derived from KERI  ,  compact  formats for resource constrained applications, simple  partial disclosure  mechanisms and simple  selective disclosure  mechanisms. ACDCs provision data using a synergy of provenance, protection, and performance. 
     " name="description">
-<meta content="xml2rfc 3.16.0" name="generator">
+<meta content="xml2rfc 3.17.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ssmith-acdc-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.16.0
+  xml2rfc 3.17.0
     Python 3.10.10
     appdirs 1.4.4
     ConfigArgParse 1.5.3
@@ -1051,7 +1051,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Smith</td>
-<td class="center">Expires 16 September 2023</td>
+<td class="center">Expires 29 September 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1064,12 +1064,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ssmith-acdc-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-03-15" class="published">15 March 2023</time>
+<time datetime="2023-03-28" class="published">28 March 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-09-16">16 September 2023</time></dd>
+<dd class="expires"><time datetime="2023-09-29">29 September 2023</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1103,7 +1103,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 September 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 29 September 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1229,7 +1229,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-exploitation-protection-mec" class="internal xref">Exploitation Protection Mechanisms</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
-                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-three-party-exploitation-mo" class="internal xref">Three Party Exploitation Model</a></p>
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-three-party-exploitation-mo" class="internal xref">Three-Party Exploitation Model</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.1">
                     <p id="section-toc.1-1.5.2.3.2.1.1"><a href="#section-5.3.1" class="auto internal xref">5.3.1</a>.  <a href="#name-second-party-disclosee-expl" class="internal xref">Second-Party (Disclosee) Exploitation</a></p>
@@ -1976,9 +1976,16 @@ At the top level, the presence (absence), of the UUID, <code>u</code>, field pro
         <h3 id="name-exploitation-protection-mec">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-exploitation-protection-mec" class="section-name selfRef">Exploitation Protection Mechanisms</a>
         </h3>
-<p id="section-5.2-1">ACDCS employ several mechanisms to protect against <em>unpermissioned exploitation of data</em>. These are:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">An ACDC may employ several mechanisms to protect against <em>unpermissioned exploitation of data</em>. These are:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.2-2.1">Chain-link Confidentiality <span>[<a href="#CLC" class="cite xref">CLC</a>]</span><a href="#section-5.2-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.2-2.1">
+            <p id="section-5.2-2.1.1">Contractually Protected Disclosure<a href="#section-5.2-2.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2-2.1.2.1">Chain-link Confidentiality <span>[<a href="#CLC" class="cite xref">CLC</a>]</span><a href="#section-5.2-2.1.2.1" class="pilcrow">¶</a>
+</li>
+              <li class="normal" id="section-5.2-2.1.2.2">Contingent Disclosure<a href="#section-5.2-2.1.2.2" class="pilcrow">¶</a>
+</li>
+            </ul>
 </li>
           <li class="normal" id="section-5.2-2.2">Partial Disclosure<a href="#section-5.2-2.2" class="pilcrow">¶</a>
 </li>
@@ -1991,7 +1998,7 @@ At the top level, the presence (absence), of the UUID, <code>u</code>, field pro
 <div id="three-party-exploitation-model">
 <section id="section-5.3">
         <h3 id="name-three-party-exploitation-mo">
-<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-three-party-exploitation-mo" class="section-name selfRef">Three Party Exploitation Model</a>
+<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-three-party-exploitation-mo" class="section-name selfRef">Three-Party Exploitation Model</a>
         </h3>
 <p id="section-5.3-1">Unpermission exploitation is characterized using a three-party model. The three parties are as follows:<a href="#section-5.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -2041,14 +2048,14 @@ At the top level, the presence (absence), of the UUID, <code>u</code>, field pro
 <li class="normal" id="section-5.3.2-1.1">
               <p id="section-5.3.2-1.1.1">implicit permissioned correlation.<a href="#section-5.3.2-1.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.3.2-1.1.2.1">no contractual restrictions on use of observed data.<a href="#section-5.3.2-1.1.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.3.2-1.1.2.1">no contractual restrictions on the use of observed data.<a href="#section-5.3.2-1.1.2.1" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
             <li class="normal" id="section-5.3.2-1.2">
               <p id="section-5.3.2-1.2.1">explicit unpermissioned correlation via collusion with second parties.<a href="#section-5.3.2-1.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.3.2-1.2.2.1">malicious use in violation of second party contract<a href="#section-5.3.2-1.2.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.3.2-1.2.2.1">malicious use in violation of second-party contract<a href="#section-5.3.2-1.2.2.1" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
@@ -2065,7 +2072,7 @@ At the top level, the presence (absence), of the UUID, <code>u</code>, field pro
 <p id="section-5.4-1">Chain-link confidentiality imposes contractual restrictions and liability on any Disclosee (Second-Party) <span>[<a href="#CLC" class="cite xref">CLC</a>]</span>. The exchange provides a fair contract consummation mechanism. The essential steps in a chain-link confidentiality exchange are shown below. Other steps may be included in a more comprehensive exchange protocol.<a href="#section-5.4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.4-2.1">
-            <em>Discloser</em> provides a non-repudiable <em>Offer</em> with verifiable metadata (sufficient partial disclosure) which includes any terms or restrictions on use.<a href="#section-5.4-2.1" class="pilcrow">¶</a>
+            <em>Discloser</em> provides a non-repudiable <em>Offer</em> with verifiable metadata (sufficient partial disclosure), which includes any terms or restrictions on use.<a href="#section-5.4-2.1" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-5.4-2.2">
             <em>Disclosee</em> verifies <em>Offer</em> against composed schema and metadata adherence to desired data.<a href="#section-5.4-2.2" class="pilcrow">¶</a>
@@ -2405,7 +2412,7 @@ are <code>s</code>, <code>a</code>, <code>e</code>, and <code>r</code>.<a href="
           <h4 id="name-composed-schema-for-both-co">
 <a href="#section-8.4.1" class="section-number selfRef">8.4.1. </a><a href="#name-composed-schema-for-both-co" class="section-name selfRef">Composed Schema for Both Compact and Uncompacted Private-Attribute ACDC</a>
           </h4>
-<p id="section-8.4.1-1">Through the use of the JSON Schema <code>oneOf</code> composition operator the following composed schema will validate against both the compact and un-compacted value of the private attribute section, <code>a</code>, field.<a href="#section-8.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-8.4.1-1">Through the use of the JSON Schema <code>oneOf</code> composition operator, the following composed schema will validate against both the compact and un-compacted value of the private attribute section, <code>a</code>, field.<a href="#section-8.4.1-1" class="pilcrow">¶</a></p>
 <div class="breakable lang-json sourcecode" id="section-8.4.1-2">
 <pre>
 {
@@ -2590,7 +2597,7 @@ are <code>s</code>, <code>a</code>, <code>e</code>, and <code>r</code>.<a href="
             </tr>
           </tbody>
         </table>
-<p id="section-9.1-4">The node, <code>n</code>, field is required. The SAID, <code>d</code>, UUID, <code>u</code>, schema, <code>s</code>, operator, <code>o</code>, and weight, <code>w</code>,  fields are optional. To clarify, each edge sub-block <span class="bcp14">MUST</span> have a node, <code>n</code>, field and  <span class="bcp14">MAY</span> have any combination of SAID, <code>d</code>, UUID, <code>u</code>, schema, <code>s</code>, operator, <code>o</code>, or  weight, <code>w</code>, fields.<a href="#section-9.1-4" class="pilcrow">¶</a></p>
+<p id="section-9.1-4">The node, <code>n</code>, field is required. The SAID, <code>d</code>, UUID, <code>u</code>, schema, <code>s</code>, operator, <code>o</code>, and weight, <code>w</code>,  fields are optional. To clarify, each edge sub-block <span class="bcp14">MUST</span> have a node, <code>n</code>, field and  <span class="bcp14">MAY</span> have any combination of SAID, <code>d</code>, UUID, <code>u</code>, schema, <code>s</code>, operator, <code>o</code>, or weight, <code>w</code>, fields.<a href="#section-9.1-4" class="pilcrow">¶</a></p>
 <div id="said-field">
 <section id="section-9.1.1">
           <h4 id="name-said-field">
@@ -2604,7 +2611,7 @@ are <code>s</code>, <code>a</code>, <code>e</code>, and <code>r</code>.<a href="
           <h4 id="name-uuid-field">
 <a href="#section-9.1.2" class="section-number selfRef">9.1.2. </a><a href="#name-uuid-field" class="section-name selfRef">UUID Field</a>
           </h4>
-<p id="section-9.1.2-1">A UUID, <code>u</code>, field <span class="bcp14">MUST</span> not appear unless there is also a SAID, <code>d</code> field. When present the UUID, <code>u</code>, field must appear immediately after as the SAID, <code>d</code>, field in the edge sub-block. When present, the value of the UUID, <code>u</code> is a pseudorandom string with approximately 128 bits of cryptographic entropy. The UUID, <code>u</code>, field acts as a salty nonce to hide the values of the edge sub-block in spite of knowledge of the edge sub-blocks SAID, <code>d</code>, field and its, the edge's, actual near schema (not its far node schema field).<a href="#section-9.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-9.1.2-1">A UUID, <code>u</code>, field <span class="bcp14">MUST</span> not appear unless there is also a SAID, <code>d</code> field. When present, the UUID, <code>u</code>, field must appear immediately after as the SAID, <code>d</code>, field in the edge sub-block. When present, the value of the UUID, <code>u</code> is a pseudorandom string with approximately 128 bits of cryptographic entropy. The UUID, <code>u</code>, field acts as a salty nonce to hide the values of the edge sub-block in spite of knowledge of the edge sub-blocks SAID, <code>d</code>, field and its, the edge's, actual near schema (not its far node schema field).<a href="#section-9.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="node-field">
@@ -2613,7 +2620,7 @@ are <code>s</code>, <code>a</code>, <code>e</code>, and <code>r</code>.<a href="
 <a href="#section-9.1.3" class="section-number selfRef">9.1.3. </a><a href="#name-node-field" class="section-name selfRef">Node Field</a>
           </h4>
 <p id="section-9.1.3-1">When the edge sub-block does NOT include a SAID, <code>d</code>, field then the node, <code>n</code>, field <span class="bcp14">MUST</span> appear as the first field in the edge sub-block, i.e. it follows the SAID, <code>d</code>, field which is first. When the edge sub-block does include a SAID, <code>d</code>, field then the node, <code>n</code>, field <span class="bcp14">MUST</span> appear as the second field in the edge sub-block.<a href="#section-9.1.3-1" class="pilcrow">¶</a></p>
-<p id="section-9.1.3-2">The value of the required node, <code>n</code>, field is the SAID of the ACDC to which the edge connects i.e. the node, <code>n</code>, field indicated, designates, references, or "point to" another ACDC. The edge is directed <em>from</em> the <em>near</em> node that is the ACDC in which the edge sub-block resides and is directed <em>to</em> the <em>far</em> node that is the ACDC indicated by the node, <code>n</code>, field of that edge sub-block. In order for the edge (chain) to be valid, the ACDC validator <span class="bcp14">MUST</span> confirm that the SAID of the provided <em>far</em> ACDC matches the node, <code>n</code>, field value given in the edge sub-block in <em>near</em> ACDC and <span class="bcp14">MUST</span> confirm that the provided <em>far</em> ACDC satisfies its own schema.<a href="#section-9.1.3-2" class="pilcrow">¶</a></p>
+<p id="section-9.1.3-2">The value of the required node, <code>n</code>, field is the SAID of the ACDC to which the edge connects i.e. the node, <code>n</code>, field indicated, designates, references, or "points to" another ACDC. The edge is directed <em>from</em> the <em>near</em> node that is the ACDC in which the edge sub-block resides and is directed <em>to</em> the <em>far</em> node that is the ACDC indicated by the node, <code>n</code>, field of that edge sub-block. In order for the edge (chain) to be valid, the ACDC validator <span class="bcp14">MUST</span> confirm that the SAID of the provided <em>far</em> ACDC matches the node, <code>n</code>, field value given in the edge sub-block in <em>near</em> ACDC and <span class="bcp14">MUST</span> confirm that the provided <em>far</em> ACDC satisfies its own schema.<a href="#section-9.1.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="schema-field">
@@ -2621,7 +2628,7 @@ are <code>s</code>, <code>a</code>, <code>e</code>, and <code>r</code>.<a href="
           <h4 id="name-schema-field">
 <a href="#section-9.1.4" class="section-number selfRef">9.1.4. </a><a href="#name-schema-field" class="section-name selfRef">Schema Field</a>
           </h4>
-<p id="section-9.1.4-1">When present, the schema, <code>s</code> field must appear immediately following the node <code>n</code>, field in the edge sub-block. When present, the value of the schema, <code>s</code> field <span class="bcp14">MUST</span> be the SAID of the top-level schema, <code>s</code>, field of the ACDC indicated by the edge's far node, <code>n</code>, field. When the schema, <code>s</code>, field is present in a edge sub-block, in order for the edge (chain) to be valid, the ACDC validator, after validating that the provided <em>far</em> ACDC indicated by the node, <code>n</code>, field satisfies its (the far ACDC's) own schema, <span class="bcp14">MUST</span> also confirm that the value of the edge's schema, <code>s</code>, field matches the SAID of the far ACDC's schema as indicated by its top-level schema, <code>s</code>, field.<a href="#section-9.1.4-1" class="pilcrow">¶</a></p>
+<p id="section-9.1.4-1">When present, the schema, <code>s</code> field must appear immediately following the node <code>n</code>, field in the edge sub-block. When present, the value of the schema, <code>s</code> field <span class="bcp14">MUST</span> be the SAID of the top-level schema, <code>s</code>, field of the ACDC indicated by the edge's far node, <code>n</code>, field. When the schema, <code>s</code>, field is present in an edge sub-block, in order for the edge (chain) to be valid, the ACDC validator, after validating that the provided <em>far</em> ACDC indicated by the node, <code>n</code>, field satisfies its (the far ACDC's) own schema, <span class="bcp14">MUST</span> also confirm that the value of the edge's schema, <code>s</code>, field matches the SAID of the far ACDC's schema as indicated by its top-level schema, <code>s</code>, field.<a href="#section-9.1.4-1" class="pilcrow">¶</a></p>
 <p id="section-9.1.4-2">The following example adds both SAID, <code>d</code>, and schema, <code>s</code>, fields (edge properties) to the edge sub-block.<a href="#section-9.1.4-2" class="pilcrow">¶</a></p>
 <div class="lang-json sourcecode" id="section-9.1.4-3">
 <pre>
@@ -2927,8 +2934,8 @@ any value except reserved values above<a href="#section-9.6.1-2.3" class="pilcro
 <p id="section-9.6.7-1">When the operator, <code>o</code>, field is missing in an edge-group block.
 The default value for the operator, <code>o</code>, field is <code>AND</code>.<a href="#section-9.6.7-1" class="pilcrow">¶</a></p>
 <p id="section-9.6.7-2">When the operator, <code>o</code>, field is missing or empty in an edge block, or is present but does not include any of the <code>I2I</code>, <code>NI2I</code> or <code>DI2I</code> operators then,<a href="#section-9.6.7-2" class="pilcrow">¶</a></p>
-<p id="section-9.6.7-3">If the node pointed to by the edge is a targeted ACDC i.e. has an Issuee, by default it is assumed that the <code>I2I</code> operator is appended to the operator, <code>o</code>, field's effective list value.<a href="#section-9.6.7-3" class="pilcrow">¶</a></p>
-<p id="section-9.6.7-4">If the node pointed to by the edge-block is a non-targeted ACDC i.e. does not have an Issuee, by default, it is assumed that the <code>NI2I</code> operator is appended to the operator, <code>o</code>, field's effective list value.<a href="#section-9.6.7-4" class="pilcrow">¶</a></p>
+<p id="section-9.6.7-3">If the node pointed to by the edge is a targeted ACDC, i.e. has an Issuee, by default it is assumed that the <code>I2I</code> operator is appended to the operator, <code>o</code>, field's effective list value.<a href="#section-9.6.7-3" class="pilcrow">¶</a></p>
+<p id="section-9.6.7-4">If the node pointed to by the edge block is a non-targeted ACDC i.e., does not have an Issuee, by default, it is assumed that the <code>NI2I</code> operator is appended to the operator, <code>o</code>, field's effective list value.<a href="#section-9.6.7-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="examples">
@@ -3132,8 +3139,8 @@ The default value for the operator, <code>o</code>, field is <code>AND</code>.<a
 <a href="#section-9.6.14" class="section-number selfRef">9.6.14. </a><a href="#name-commentary" class="section-name selfRef">Commentary</a>
           </h4>
 <p id="section-9.6.14-1">This provides a simple but highly expressive syntax for applying (m-ary) aggregating operators to nestable groups of edges and unary operators to edges individually within those groups. This is a general approach with high expressive power. It satisfies many business logic requirements similar to that of SGL.<a href="#section-9.6.14-1" class="pilcrow">¶</a></p>
-<p id="section-9.6.14-2">Certainly, an even more expressive syntax could be developed. The proposed syntax, however, is simple, compact, has intelligent defaults, and is sufficiently general in scope to satisfy all the currently contemplated use cases.<a href="#section-9.6.14-2" class="pilcrow">¶</a></p>
-<p id="section-9.6.14-3">The intelligent defaults for the operator, <code>o</code>, field, including the default application of the  <code>I2I</code> or <code>NI2I</code> unary operator, means that in most current use cases the operator, <code>o</code>, field does not even need to be present.<a href="#section-9.6.14-3" class="pilcrow">¶</a></p>
+<p id="section-9.6.14-2">Certainly, an even more expressive syntax could be developed. The proposed syntax, however, is relatively simple and compact. It has intelligent defaults and is sufficiently general in scope to satisfy all the currently contemplated use cases.<a href="#section-9.6.14-2" class="pilcrow">¶</a></p>
+<p id="section-9.6.14-3">The intelligent defaults for the operator, <code>o</code>, field, including the default application of the  <code>I2I</code> or <code>NI2I</code> unary operator, means that in most current use cases, the operator, <code>o</code>, field, does not even need to be present.<a href="#section-9.6.14-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -4198,8 +4205,17 @@ Using the aggregate, <em>B</em> of blinded ACDC saids as the TEL registry entry 
       <h2 id="name-extensibility">
 <a href="#section-14" class="section-number selfRef">14. </a><a href="#name-extensibility" class="section-name selfRef">Extensibility</a>
       </h2>
-<p id="section-14-1">ToDo
-append-to-extend<a href="#section-14-1" class="pilcrow">¶</a></p>
+<p id="section-14-1">ToDo<a href="#section-14-1" class="pilcrow">¶</a></p>
+<p id="section-14-2">Append-only verifiable data structures have strong security properties that simplify end-verifiability &amp; foster decentralization.<a href="#section-14-2" class="pilcrow">¶</a></p>
+<p id="section-14-3">Append-only provides permission-less extensibility by downstream issuers, presenters, and/or verifiers<a href="#section-14-3" class="pilcrow">¶</a></p>
+<p id="section-14-4">Each ACDC has a universally-unique content-based identifier with a universally-unique content-based schema identifier.<a href="#section-14-4" class="pilcrow">¶</a></p>
+<p id="section-14-5">Fully decentralized name-spacing.<a href="#section-14-5" class="pilcrow">¶</a></p>
+<p id="section-14-6">Custom fields are appended via chaining via one or more custom ACDCs defined by custom schema (type-is-schema).<a href="#section-14-6" class="pilcrow">¶</a></p>
+<p id="section-14-7">No need for centralized permissioned name-space registries to resolve name-space collisions.<a href="#section-14-7" class="pilcrow">¶</a></p>
+<p id="section-14-8">The purposes of a registry now become merely schema discovery or schema blessing for a given context or ecosystem.<a href="#section-14-8" class="pilcrow">¶</a></p>
+<p id="section-14-9">The reach of the registry is tuned to the reach of desired interoperability by the ecosystem participants.<a href="#section-14-9" class="pilcrow">¶</a></p>
+<p id="section-14-10">Human meaningful labels on SAIDs are local context only.<a href="#section-14-10" class="pilcrow">¶</a></p>
+<p id="section-14-11">Versioning is simplified because edges still verify if new schema are backwards compatible. (persistent data structure model).<a href="#section-14-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="appendix-performance-and-scalability">
