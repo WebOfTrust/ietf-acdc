@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-03-28T01:06:19.399705+00:00",
+  "timestamp": "2023-03-30T01:05:33.433084+00:00",
   "repo": "WebOfTrust/ietf-acdc",
   "labels": [
     {
@@ -50,5 +50,34 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOJJ9bg85NFZg6",
+      "title": "updated typos added some text to append to extend",
+      "url": "https://github.com/WebOfTrust/ietf-acdc/pull/1",
+      "state": "MERGED",
+      "author": "SmithSamuelM",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-03-28T15:52:20Z",
+      "updatedAt": "2023-03-28T15:56:28Z",
+      "baseRepository": "WebOfTrust/ietf-acdc",
+      "baseRefName": "main",
+      "baseRefOid": "8f7fa76992ef255b1cf8af69032e7721a9d795e0",
+      "headRepository": "SmithSamuelM/ietf-acdc",
+      "headRefName": "main",
+      "headRefOid": "daba0862bee0b236e5490386fd63bc8e113b1b06",
+      "closedAt": "2023-03-28T15:56:28Z",
+      "mergedAt": "2023-03-28T15:56:28Z",
+      "mergedBy": "SmithSamuelM",
+      "mergeCommit": {
+        "oid": "826c7f8e6dfee278976330d57acd3cf916201ff7"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
