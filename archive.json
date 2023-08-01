@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-07-30T01:04:28.557764+00:00",
+  "timestamp": "2023-08-01T01:08:38.675870+00:00",
   "repo": "WebOfTrust/ietf-acdc",
   "labels": [
     {
@@ -76,6 +76,32 @@
       "mergeCommit": {
         "oid": "826c7f8e6dfee278976330d57acd3cf916201ff7"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOJJ9bg85Wz-ie",
+      "title": "adds archival note",
+      "url": "https://github.com/WebOfTrust/ietf-acdc/pull/2",
+      "state": "OPEN",
+      "author": "m00sey",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Due to the proposed move to the Trust over IP Foundation, we should archive this repository.",
+      "createdAt": "2023-07-31T15:11:26Z",
+      "updatedAt": "2023-07-31T15:16:14Z",
+      "baseRepository": "WebOfTrust/ietf-acdc",
+      "baseRefName": "main",
+      "baseRefOid": "826c7f8e6dfee278976330d57acd3cf916201ff7",
+      "headRepository": "m00sey/ietf-acdc",
+      "headRefName": "main",
+      "headRefOid": "c30596587d340d8b439a84e23e8defe038662055",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
